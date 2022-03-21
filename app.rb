@@ -1,17 +1,18 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/booking'
 
-# Chitter Application
+# MakersBnB Application
 class MakersBnB < Sinatra::Base
   configure :development do
-  # :nocov:
+    # :nocov:
     register Sinatra::Reloader
-  # :nocov:
+    # :nocov:
   end
 
   get '/' do
-  
   end
 
   run! if app_file == $PROGRAM_NAME

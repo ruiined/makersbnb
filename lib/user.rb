@@ -1,3 +1,4 @@
-class User 
+# frozen_string_literal: true
 
+class User
 end

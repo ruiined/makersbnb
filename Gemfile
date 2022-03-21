@@ -11,8 +11,8 @@ gem 'sinatra-contrib'
 gem 'webrick'
 
 group :test do
-  gem 'rspec'
   gem 'capybara'
+  gem 'rspec'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
   gem 'webdrivers', '~> 5.0', require: false
