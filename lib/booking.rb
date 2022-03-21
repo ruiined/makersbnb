@@ -6,6 +6,10 @@ require_relative 'user'
 
 # Booking Class
 class Booking
-  class << self
+  def initialize(id:, name: )
+    
   end
+  # class << self
+  #   def all
+  # end
 end
