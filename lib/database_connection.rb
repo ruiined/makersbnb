@@ -6,8 +6,15 @@ require_relative 'user'
 # Database Connection class
 class DatabaseConnection
   class << self
+
+    def all
+      connect
+      request('SELECT * FROM properties')
+      property_response
+    end
+
     def connect 
-      @connection = PG.connect(db_name: database_name)
+      @connection = PG.connect(dbname: database_name)
     end
 
     def request(query)
@@ -21,11 +28,11 @@ class DatabaseConnection
     def property_response
       @request.each do | property |
         Property.new(
-          id: property['id'], 
-          title: property['title'], 
-          description: property['description'], 
-          address: property['address'], 
-          price: property['price'], 
+          id: property['id'],
+          title: property['title'],
+          description: property['description'],
+          address: property['address'],
+          price: property['price'],
           image_url: property['image_url']
         )
       end
@@ -55,7 +62,7 @@ class DatabaseConnection
     private
 
     def database_name
-      testing? ? makersbnb_test : makersbnb 
+      testing? ? 'makersbnb_test' : 'makersbnb'
     end
 
     def testing?
