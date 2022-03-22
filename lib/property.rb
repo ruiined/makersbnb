@@ -23,7 +23,7 @@ class Property
     def find(id)
       database_connection(find_query, [id])
     end
-
+ 
     def create(title:, description:, address:, price:, image_url:)
       database_connection(insert_query, [title, description, address, price, image_url])
     end
