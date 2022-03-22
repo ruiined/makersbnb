@@ -13,6 +13,8 @@ We continued by converting the headline specifications into user stories, as wel
 
 Once we exited the planning stage we split the project into small tasks and worked in pairs with one member being left alone at any one time. To compensate for the less than ideal nature of somebody being a solo artist, we switched stations (tasks and pairs) quite often. This benefitted all of us by giving us variety in the material we were working on and learning/consolidating, as well as giving us a chance to work with all other members of the team and experience the subtle differences in their work preferences. We would reconvene frequently and briefly to assess our progress and allocate new tasks based on prerequisites being met or issues arising from prior changes. The most important thing we did was to remain flexible and versatile in our approach, ready for any blocker that came our way.
 
+## Workflow Stages
+
 ### User Stories
   ```
   As a user
@@ -39,15 +41,14 @@ Once we exited the planning stage we split the project into small tasks and work
   So that only I can access my account
   I want to be able to sign in or sign out.
   ```
+  
+### Diagram
+  ![Project Diagram](https://github.com/ruiined/makersbnb/blob/main/screenshots/makersbnb_diagram.jpg)
+
 ### Minimum Viable Product
 Our MVP consists of the first two user stories in the above list, namely being able to see a list of spaces and being able to view any one space in more detail.
 
 ### Next Steps
 We will add the functionality to book a space, which will make use of the User class. The functionality for a user to sign up (and requirement when attempting to book a space) will also be added, along with signing in and out.
 
-### Installation Instructions
-
-### Diagram
-  ![Project Diagram](https://github.com/ruiined/makersbnb/blob/main/screenshots/makersbnb_diagram.jpg)
-
-### Lessons Learned
+## Retrospective
