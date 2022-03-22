@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'pg'
-require_relative 'property'
-require_relative 'user'
 
 # Database Connection class
 class DatabaseConnection
@@ -21,12 +19,12 @@ class DatabaseConnection
       @request = @connection.exec(query)
     end
 
-    def safe_request(query)
+    def safe_request(query, params)
       @request = @connection.exec_params(query, params)
     end
 
     def property_response
-      @request.each do |property|
+      @request.map do |property|
         Property.new(
           id: property['id'],
           title: property['title'],
