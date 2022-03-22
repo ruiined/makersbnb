@@ -7,7 +7,7 @@ feature 'make a booking' do
     expect(current_path).to eq("/properties/#{property.id}")
     expect(page).to have_text('test_property')
     expect(page).to have_text('£_price_per_night')
-    expect(page).to have_xpath(#"//img[@src='environ-peeling-kuur.jpg'])
+    expect(page).to have_xpath(image url)
     expect(page).to have_button(name: 'submit')
     #expect(page).to have a calendar
     #use capybara to select date from calendar

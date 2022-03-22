@@ -18,5 +18,6 @@ describe Property do
       expect(properties.first.title).to eq 'Bungalow'
       expect(properties.last.address).to eq '5 Nutt Square'
     end
+  end
 end
 

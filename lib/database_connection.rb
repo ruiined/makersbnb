@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'pg'
 require_relative 'property'
 require_relative 'user'
@@ -6,14 +7,13 @@ require_relative 'user'
 # Database Connection class
 class DatabaseConnection
   class << self
-
     def all
       connect
       request('SELECT * FROM properties')
       property_response
     end
 
-    def connect 
+    def connect
       @connection = PG.connect(dbname: database_name)
     end
 
@@ -26,7 +26,7 @@ class DatabaseConnection
     end
 
     def property_response
-      @request.each do | property |
+      @request.each do |property|
         Property.new(
           id: property['id'],
           title: property['title'],
@@ -39,18 +39,18 @@ class DatabaseConnection
     end
 
     def user_response
-      @request.each do | user |
+      @request.each do |user|
         User.new(
           id: user['id'],
           username: user['username'],
           password: user['password'],
-          email: user['email'],
+          email: user['email']
         )
       end
     end
 
     def booking_response
-      @request.each do | booking |
+      @request.each do |booking|
         Booking.new(
           id: booking['id'],
           property_id: booking['property_id'],
@@ -58,7 +58,7 @@ class DatabaseConnection
         )
       end
     end
-    
+
     private
 
     def database_name
