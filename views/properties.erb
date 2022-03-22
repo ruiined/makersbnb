@@ -4,7 +4,7 @@
 </head>
   <h1>Let these potential bookings pique your curiosity...</h1>
     <div>
-      <%= @properties.each do |property| %>
+      <% @properties.each do |property| %>
         <div class="property">
           <p><%= property.title %></p>
           <p><%= property.description %></p>

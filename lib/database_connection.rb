@@ -5,12 +5,6 @@ require 'pg'
 # Database Connection class
 class DatabaseConnection
   class << self
-    def all
-      connect
-      request('SELECT * FROM properties')
-      property_response
-    end
-
     def connect
       @connection = PG.connect(dbname: database_name)
     end

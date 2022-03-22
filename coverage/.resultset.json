@@ -19,8 +19,6 @@
           null,
           1,
           0,
-          0,
-          0,
           null,
           null,
           1,
@@ -31,6 +29,7 @@
           null,
           null,
           1,
+          0,
           0,
           null,
           null,
@@ -139,9 +138,13 @@
       "/Users/ruiined/Documents/Projects/makersbnb/lib/property.rb": {
         "lines": [
           null,
-          1,
           null,
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
           1,
           0,
           0,
@@ -183,6 +186,7 @@
         "lines": [
           null,
           null,
+          null,
           1,
           1,
           0,
@@ -205,6 +209,8 @@
       },
       "/Users/ruiined/Documents/Projects/makersbnb/spec/features/make_a_booking_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           0,
@@ -259,7 +265,9 @@
           0,
           null,
           0,
+          null,
           0,
+          null,
           null,
           0,
           null,
@@ -268,7 +276,6 @@
           0,
           0,
           0,
-          null,
           null,
           null,
           null
@@ -285,6 +292,6 @@
         ]
       }
     },
-    "timestamp": 1647955303
+    "timestamp": 1647960751
   }
 }
