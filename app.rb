@@ -13,6 +13,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
+    @properties = Property.all
+    erb :index
+  end
+
+  get '/:id/property' do
+    @property = params[:id]
+    erb :'property'
   end
 
   run! if app_file == $PROGRAM_NAME
