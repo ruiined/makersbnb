@@ -13,9 +13,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    reallyreallygoodbranchnameyea
-    @properties = Property.all
-    erb :index
+    redirect '/properties'
   end
 
   get '/:id/property' do
@@ -26,6 +24,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/properties' do
+    @properties = Property.all
     erb(:properties)
   end
 

@@ -4,6 +4,8 @@ require_relative 'database_connection'
 
 # Property class
 class Property
+  attr_reader :id, :title, :description, :address, :price, :image_url
+  
   def initialize(id:, title:, description:, address:, price:, image_url:)
     @id = id
     @title = title
