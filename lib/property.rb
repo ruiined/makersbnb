@@ -12,8 +12,10 @@ class Property
   end
 
   def self.all
+reallyreallygoodbranchnameyea
     DatabaseConnection.connect
-    DatabaseConnection.request("SELECT * FROM proper ties;")
+    DatabaseConnection.request("SELECT * FROM properties;")
     DatabaseConnection.property_response 
+    end
   end
 end
