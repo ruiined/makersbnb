@@ -36,4 +36,4 @@ This is the project of a web application, using Sinatra and PostreSQL.
   ```
 
 ### Diagram
-  ![Project Diagram](https://github.com/ruiined/makersbnb/blob/main/screens/makersbnb_diagram.jpg)
+  ![Project Diagram](https://github.com/ruiined/makersbnb/blob/main/screenshots/makersbnb_diagram.jpg)
