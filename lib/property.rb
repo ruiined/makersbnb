@@ -11,9 +11,10 @@ class Property
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM properties;")
+    result = DatabaseConnection.query('SELECT * FROM properties;')
     result.map do |property|
-      Property.new(id: property['id'], title: property['title'], description: property['description'], address: property['address'], price: property['price'], image_url: property['image_url'])
+      Property.new(id: property['id'], title: property['title'], description: property['description'],
+                   address: property['address'], price: property['price'], image_url: property['image_url'])
     end
   end
 end
