@@ -2,14 +2,24 @@
   <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
   <title>MakersBnB</title>
 </head>
-  <h1>Let these potential bookings pique your curiosity...</h1>
-    <div>
+<body>
+<div class="main">
+  <h1>MakersBnB</h1>
+  <h2>Let these potential bookings pique your curiosity</h2>
       <% @properties.each do |property| %>
-        <div class="property">
-          <p><%= property.title %></p>
-          <p><%= property.description %></p>
-          <p><%= property.price %></p>
+        <div class="listing">
+        <img class="listing" src="<%= property.image_url %>">
+          <p><h3><%= property.title %></h3></p>
+          <p>£<%= property.price %> per night</p>
+          <p><%= property.address %></p>
+          <input type="hidden" name="pg_type" value="<% @pg_type %>">
           <a href="/<%= property.id %>/property">View property</a>
         </div>
       <% end %>
-    </div>
+    <%# <form method="post" action="/delete/<%= task.id %>">
+  <label for="delete_button">
+  <input type="hidden" name="pg_type" value="<% @pg_type %>">
+  <button type="submit" name="delete">Delete</button></label>
+</form> %>
+</div>
+</body>

@@ -1,9 +1,18 @@
-@property.title
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+  <title>MakersBnB</title>
+</head>
+<body>
+ <div class="main">
+ <h1>MakersBnB</h1>
+ <h2><%= @property.first.title %></h2>
 <br>
-@property.description
+ <%= @property.first.description %>
 <br>
-@property.address
+ <%= @property.first.address %>
 <br>
-@property.price
+ <%= @property.first.price %>
 <br>
-@property.image_url
+ <%= @property.first.image_url %>
+</div>
+</body>

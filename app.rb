@@ -16,22 +16,15 @@ class MakersBnB < Sinatra::Base
     redirect '/properties'
   end
 
-  get '/:id/property' do
-    @property = params[:id]
-    erb :property
-
-    erb(:index)
-  end
-
   get '/properties' do
     @properties = Property.all
     erb(:properties)
   end
 
-  get '/properties/:id' do
-    @property_id = params[:id]
-    erb(:'properties/book')
-    main
+  get '/:id/property' do
+    id = params[:id]
+    @property = Property.find(params[:id])
+    erb :property
   end
 
   run! if app_file == $PROGRAM_NAME

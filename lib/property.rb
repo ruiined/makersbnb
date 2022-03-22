@@ -23,7 +23,7 @@ class Property
     def find(id)
       database_connection(find_query, [id])
     end
-
+    
     private
 
     def select_all_query
