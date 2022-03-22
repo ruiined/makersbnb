@@ -29,4 +29,15 @@ describe Property do
       expect(properties.last.address).to eq '5 Nutt Square'
     end
   end
+  describe '.create' do
+    it 'adds a property to the database' do
+      po = Property.create(title: 'Bleh', description: 'Bleh bleh', address: '23 Bleh Street', price: 12, image_url: 'http://bleh')
+  
+      expect(po.first.title).to eq 'Bleh'
+      expect(po.first.description).to eq 'Bleh bleh'
+      expect(po.first.address).to eq '23 Bleh Street'
+      expect(po.first.price).to eq '12'
+      expect(po.first.image_url).to eq 'http://bleh'
+    end
+  end
 end
