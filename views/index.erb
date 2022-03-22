@@ -2,6 +2,17 @@
 <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
 <title>MakersBnB</title>
 </head>
+reallyreallygoodbranchnameyea
+<h1>Let these potential bookings pique your curiosity...</h1>
+  <div>
+    <%= @properties.each do |property| %>
+      <div class="property">
+        <p><%= property.title %></p>
+        <p><%= property.description %></p>
+        <p><%= property.price %></p>
+      </div>
+    <% end %>
+  </div>
 <h1>Welcome to MakersBnB</h1>
 <form>
   <label for="username">Username:</label><br>
