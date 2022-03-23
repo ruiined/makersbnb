@@ -26,5 +26,9 @@ class MakersBnB < Sinatra::Base
     erb :property
   end
 
+  get '/calendar' do
+    erb(:calendar)
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
