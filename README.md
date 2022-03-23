@@ -4,7 +4,7 @@ This is the project of a web application, using Sinatra and PostreSQL.
 
 ## Contributors
   <a href="https://github.com/ruiined/makersbnb/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ruiined/makersbnb" />
+  <img src="https://github.com/ruiined/makersbnb/blob/main/screenshots/feb22_team1.png" />
   </a>
 
 ## Usage
