@@ -5,14 +5,16 @@ require 'property'
 describe Property do
   subject(:property) { Property }
   subject(:all_properties) { Property.all }
-  
-  let(:create_property) { Property.create(
-    title: 'Bungalow', 
-    description: 'Small bungalow', 
-    address: '4 Nutt Square', 
-    price: 10,
-    image_url: 'http://nutt.nutt.com'
-  ) }
+
+  let(:create_property) do
+    Property.create(
+      title: 'Bungalow',
+      description: 'Small bungalow',
+      address: '4 Nutt Square',
+      price: 10,
+      image_url: 'http://nutt.nutt.com'
+    )
+  end
 
   describe '.all' do
     it 'returns an empty array' do
@@ -34,7 +36,7 @@ describe Property do
   describe '.find' do
     it 'finds a property using the id' do
       found_property = property.find(create_property.first.id)
-      expect(found_property.first.title).to eq 'Bungalow' 
+      expect(found_property.first.title).to eq 'Bungalow'
     end
   end
 

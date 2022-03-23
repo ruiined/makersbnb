@@ -5,7 +5,7 @@ require 'pg'
 # Database Connection class
 class DatabaseConnection
   class << self
-    def run (query, params = nil)
+    def run(query, params = nil)
       connect
       params.nil? ? request(query) : params_request(query, params)
       response

@@ -44,7 +44,7 @@ class Property
 
     def insert_query
       'INSERT INTO properties (title, description, address, price, image_url)
-       VALUES($1, $2, $3, $4, $5) 
+       VALUES($1, $2, $3, $4, $5)
        RETURNING id, title, description, address, price, image_url;'
     end
 
