@@ -73,21 +73,38 @@ li a {
 }
 
 li a:hover {
-  background-color: #4697b8;
+  background-color: #9bcbde;
   color: white;
+}
+input[type=text],[type=password],[type=email] {
+  width: 40vw;
+  height: 3vw;
+  margin: 2vw;
+  border: none;
+  background-color: #f1f1f1;
+  padding: 1vw;
+  text-align: center;
+  color: #ad80e0;
+  letter-spacing: 3px;
+}
+input[type=text]:focus,[type=password]:focus,[type=email]:focus {
+  outline: none;
+  border-bottom: double 0.2vw #4697b8;
 }
 input[type=submit] {
   border: none;
   cursor: pointer;
   text-align: center;
-  height: 2.5vw;
+  letter-spacing: 1.5px;
+  height: 3vw;
+  font-size: 1.5vw;
   padding: 0vw 1.5vw;
-  background-color: #f1f1f1;
-  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+  border-bottom: #ad80e0 solid 1px;
+  background-color: white;
+  transition: color 0.5s ease-out;
 }
 input[type=submit]:hover {
-  background-color: #4697b8;
-  color: white;
+  color: #115b78;
 }
 textarea {
   resize: none;
@@ -97,11 +114,11 @@ textarea {
   border: none;
   color: #7e7e7e;
   font-style: italic;
-  border-left: double 0.2vw #4697b8;
   transition: background-color 0.5s ease-out;
   text-align: justify;
 }
 textarea:focus {
   outline: 0;
   background-color: #f1f1f1;
+  border-left: double 0.2vw #4697b8;
 }
