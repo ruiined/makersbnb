@@ -5,14 +5,13 @@
 <body>
  <div class="main">
  <h1>MakersBnB</h1>
- <h2><%= @property.first.title %></h2>
-<br>
- <%= @property.first.description %>
-<br>
+  <img class="listing_details" src="<%= @property.first.image_url %>">
+<h2 id="detail"><%= @property.first.title %></h2>
  <%= @property.first.address %>
 <br>
  <%= @property.first.price %>
+ <br>
+ <%= @property.first.description %>
 <br>
- <%= @property.first.image_url %>
 </div>
 </body>

@@ -15,9 +15,16 @@ div.listing {
   margin-top: 3vw;
   padding: 2vw 2vw;
 }
+div.listing_details {
+
+}
 img.listing {
   float: right;
   height: 15vw;
+}
+img.listing_details {
+  width: 60vw;
+  padding-bottom: 2vw;
 }
 h1 {
   font-size: 4vw;
@@ -26,6 +33,9 @@ h1 {
 h2 {
   font-size: 2vw;
   text-align: center;
+}
+h2#detail {
+  text-align: left;
 }
 h3 {
   font-size: 2vw;
