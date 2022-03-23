@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-def sign_in
+def log_in
   visit('/')
-  fill_in 'username', with: 'username'
+  click_on 'Login'
+  fill_in 'email', with: 'email'
   fill_in 'pwd', with: 'password'
   click_button 'submit'
 end
