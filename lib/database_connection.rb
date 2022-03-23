@@ -49,7 +49,7 @@ class DatabaseConnection
     end
 
     def user_response
-      @request.each do |user|
+      @request.map do |user|
         User.new(
           id: user['id'],
           username: user['username'],
@@ -60,7 +60,7 @@ class DatabaseConnection
     end
 
     def booking_response
-      @request.each do |booking|
+      @request.map do |booking|
         Booking.new(
           id: booking['id'],
           property_id: booking['property_id'],

@@ -1,0 +1,34 @@
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+  <title>MakersBnB</title>
+</head>
+<body>
+<div class="main">
+  <h1>MakersBnB</h1>
+   <ul>
+   <li class="left"><a href="/properties">view all</a> </li>
+   <li class="right"><a href="/profile">profile</a></li>
+   <li class="right"><a href="/sign_up">sign up</a></li>
+   <li class="right"><a href="/sign_in">sign in</a></li>
+   <li class="right"><a href="/sign_out">sign out</a></li>
+   </ul>
+<%# --------------INSERT CODE BELOW-------------- %>
+
+<div id="center_it"><h2 id="center">Thank you for choosing us!</h2>
+<br><br>
+<form action="/process_sign_up" method="post">
+   <label for="username">Username:</label><br>
+   <input type="text" id="username" name="username"><br><br>
+   <label for="pwd">Password:</label><br>
+   <input type="password" id="pwd" name="pwd"><br><br>
+   <label for="pwd">Confirm password:</label><br>
+   <input type="password" id="pwd" name="pwd"><br><br>
+   <label for="pwd">E-mail:</label><br>
+   <input type="email" id="email" name="email"><br><br>
+   <input type="submit" value="Sign Up">
+ </form>
+
+</div>
+<%# --------------INSERT CODE ABOVE-------------- %>
+</div>
+</body>

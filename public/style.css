@@ -14,8 +14,9 @@ div.listing {
   margin-top: 3vw;
   padding: 2vw 2vw;
 }
-div.listing_details {
-
+div#center_it {
+  text-align: center;
+  padding: 4vw 0;
 }
 img.listing {
   float: right;
@@ -25,16 +26,19 @@ img.listing_details {
   width: 60vw;
   padding-bottom: 2vw;
 }
+p {
+  text-align: justify;
+}
 h1 {
   font-size: 4vw;
   text-align: center;
 }
 h2 {
   font-size: 2vw;
-  text-align: center;
-}
-h2#detail {
   text-align: left;
+}
+h2#center {
+  text-align: center;
 }
 h3 {
   font-size: 2vw;
@@ -45,4 +49,76 @@ a {
 }
 a:hover {
   color: #115b78;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+li.left {
+  float: left;
+}
+li.right {
+  float: right;
+}
+li a {
+  display: block;
+  color: black;
+  padding: 1vw;
+  text-decoration: none;
+  background-color: #f1f1f1;
+  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+}
+
+li a:hover {
+  background-color: #9bcbde;
+  color: white;
+}
+input[type=text],[type=password],[type=email] {
+  width: 40vw;
+  height: 3vw;
+  margin: 2vw;
+  border: none;
+  background-color: #f1f1f1;
+  padding: 1vw;
+  text-align: center;
+  color: #ad80e0;
+  letter-spacing: 3px;
+}
+input[type=text]:focus,[type=password]:focus,[type=email]:focus {
+  outline: none;
+  border-bottom: double 0.2vw #4697b8;
+}
+input[type=submit] {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 1.5px;
+  height: 3vw;
+  font-size: 1.5vw;
+  padding: 0vw 1.5vw;
+  border-bottom: #ad80e0 solid 1px;
+  background-color: white;
+  transition: color 0.5s ease-out;
+}
+input[type=submit]:hover {
+  color: #115b78;
+}
+textarea {
+  resize: none;
+  width: 60vw;
+  height: 10vw;
+  padding: 1vw;
+  border: none;
+  color: #7e7e7e;
+  font-style: italic;
+  transition: background-color 0.5s ease-out;
+  text-align: justify;
+}
+textarea:focus {
+  outline: 0;
+  background-color: #f1f1f1;
+  border-left: double 0.2vw #4697b8;
 }
