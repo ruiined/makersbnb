@@ -15,27 +15,27 @@ class User
 
   class << self
     def all
-      DatabaseConnection.run(select_all_query)
+      DatabaseConnection.run_user(select_all_query)
     end
 
     def find(id)
       # return nil unless id
-      DatabaseConnection.run(find_query, [id])
+      DatabaseConnection.run_user(find_query, [id])
     end
 
     def create(username:, password:, email:)
       encrypted_password = BCrypt::Password.create(password)
-      DatabaseConnection.run(insert_query, [username, password, email])
+      DatabaseConnection.run_user(insert_query, [username, password, email])
     end
 
     def delete(id)
-      DatabaseConnection.run(delete_query, [id])
+      DatabaseConnection.run_user(delete_query, [id])
     end
 
     def authenticate(username:, password:)
       return unless result.any?
       return unless BCrypt::Password.new(result[0]['password']) == password
-      DatabaseConnection.user_run(authenticate_query, [username, password])
+      DatabaseConnection.run_user(authenticate_query, [username, password])
     end
 
     private

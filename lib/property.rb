@@ -17,19 +17,19 @@ class Property
 
   class << self
     def all
-      DatabaseConnection.run(select_all_query)
+      DatabaseConnection.run_property(select_all_query)
     end
 
     def find(id)
-      DatabaseConnection.run(find_query, [id])
+      DatabaseConnection.run_property(find_query, [id])
     end
 
     def create(title:, description:, address:, price:, image_url:)
-      DatabaseConnection.run(insert_query, [title, description, address, price, image_url])
+      DatabaseConnection.run_property(insert_query, [title, description, address, price, image_url])
     end
 
     def delete(id)
-      DatabaseConnection.run(delete_query, [id])
+      DatabaseConnection.run_property(delete_query, [id])
     end
 
     private

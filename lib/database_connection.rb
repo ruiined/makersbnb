@@ -5,10 +5,20 @@ require 'pg'
 # Database Connection class
 class DatabaseConnection
   class << self
-    def run(query, params = nil)
+    def run_property(query, params = nil)
       connect
       params.nil? ? request(query) : params_request(query, params)
-      response
+      property_response
+    end
+    def run_user(query, params = nil)
+      connect
+      params.nil? ? request(query) : params_request(query, params)
+      user_response
+    end
+    def run_booking(query, params = nil)
+      connect
+      params.nil? ? request(query) : params_request(query, params)
+      booking_response
     end
 
     private
