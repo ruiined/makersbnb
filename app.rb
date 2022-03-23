@@ -28,7 +28,23 @@ class MakersBnB < Sinatra::Base
 
   get '/:id/booking' do
     @property = Property.find(params[:id])
-    erb(:booking)
+    erb :booking
+  end
+
+  get '/profile' do
+    erb :profile
+  end
+
+  get '/sign_in' do
+    erb :sign_in
+  end
+
+  get '/sign_out' do 
+    redirect '/properties'
+  end
+
+  get '/sign_up' do
+    erb :sign_up
   end
 
   run! if app_file == $PROGRAM_NAME
