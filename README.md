@@ -13,17 +13,17 @@ This is the project of a web application, using Sinatra and PostreSQL.
 
 Navigate to the directory you wish for the project to be in...
 ```console
-johnsmith ~ % cd yourchosendirectory
+johnsmith ~ % cd yourdirectory
 ```
 
 Then you can clone this repository by running the following...
 ```console
-johnsmith yourchosendirectory % git clone https://github.com/ruiined/makersbnb.git
+johnsmith yourdirectory % git clone https://github.com/ruiined/makersbnb.git
 ```
 
 Change directory to the project...
 ```console
-johnsmith yourchosendirectory % cd makersbnb
+johnsmith yourdirectory % cd makersbnb
 ```
 
 Install the gems by running the following...
