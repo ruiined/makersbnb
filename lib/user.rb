@@ -19,15 +19,23 @@ class User
     end
 
     def find(id)
+      # return nil unless id
       DatabaseConnection.run_user(find_query, [id])
     end
 
     def create(username:, password:, email:)
+      encrypted_password = BCrypt::Password.create(password)
       DatabaseConnection.run_user(insert_query, [username, password, email])
     end
 
     def delete(id)
       DatabaseConnection.run_user(delete_query, [id])
+    end
+
+    def authenticate(username:, password:)
+      return unless result.any?
+      return unless BCrypt::Password.new(result[0]['password']) == password
+      DatabaseConnection.run_user(authenticate_query, [username, password])
     end
 
     private
@@ -44,6 +52,10 @@ class User
       'INSERT INTO users (username, password, email)
        VALUES($1, $2, $3)
        RETURNING id, username, password, email;'
+    end
+
+    def authenticate_query
+      'SELECT * FROM users WHERE username = $1'
     end
 
     def delete_query
