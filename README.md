@@ -11,7 +11,26 @@ This is the project of a web application, using Sinatra and PostreSQL.
 
 ### Installation Instructions
 
-To be added later...
+Navigate to the directory you wish for the project to be in...
+```console
+johnsmith@johns-computer ~ % cd yourchosendirectory
+```
+
+Then you can clone this repository by running the following...
+```console
+johnsmith@johns-computer yourchosendirectory % git clone https://github.com/ruiined/makersbnb.git
+```
+
+Change directory to the project...
+```console
+johnsmith@johns-computer yourchosendirectory % cd makersbnb
+```
+
+Install the gems by running the following...
+```console
+johnsmith@johns-computer makersbnb % bundle install
+```
+
 
 ### How To Interact With The App
 
