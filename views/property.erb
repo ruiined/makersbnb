@@ -11,17 +11,17 @@
    <%# sign in / sign up IF not signed it %>
    <%# profile & sign out IF signed it %>
    <li class="right"><a href="/profile">profile</a></li>
-   <li class="right"><a href="/profile">sign up</a></li>
-   <li class="right"><a href="/#">sign in</a></li>
-   <li class="right"><a href="/#">sign out</a></li>
+   <li class="right"><a href="/sign_up">sign up</a></li>
+   <li class="right"><a href="/sign_in">sign in</a></li>
+   <li class="right"><a href="/sign_out">sign out</a></li>
    </ul><br><br>
 <img class="listing_details" src="<%= @property.first.image_url %>">
-<h2 id="detail"><%= @property.first.title %></h2>
+<h2><%= @property.first.title %></h2>
 <%= @property.first.address %>
 <br>
 £<%= @property.first.price %> per night
 <br><br>
-<%= @property.first.description %>
+<p><%= @property.first.description %></p>
 <br><br>
 <a href="/<%= @property.first.id %>/booking">Book</a></div>
 </div>

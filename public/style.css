@@ -14,8 +14,9 @@ div.listing {
   margin-top: 3vw;
   padding: 2vw 2vw;
 }
-div#navbar {
-  background-color: #f1f1f1;
+div#center_it {
+  text-align: center;
+  padding: 4vw 0;
 }
 img.listing {
   float: right;
@@ -25,16 +26,19 @@ img.listing_details {
   width: 60vw;
   padding-bottom: 2vw;
 }
+p {
+  text-align: justify;
+}
 h1 {
   font-size: 4vw;
   text-align: center;
 }
 h2 {
   font-size: 2vw;
-  text-align: center;
-}
-h2#detail {
   text-align: left;
+}
+h2#center {
+  text-align: center;
 }
 h3 {
   font-size: 2vw;

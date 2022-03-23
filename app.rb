@@ -31,7 +31,8 @@ class MakersBnB < Sinatra::Base
     erb :booking
   end
 
-  get '/profile' do
+  get '/:user_id/profile' do
+    @user = User.find(params[:user_id])
     erb :profile
   end
 
@@ -39,12 +40,20 @@ class MakersBnB < Sinatra::Base
     erb :sign_in
   end
 
-  get '/sign_out' do 
+  post '/process_sign_in' do
+    redirect '/properties'
+  end
+
+  get '/sign_out' do
     redirect '/properties'
   end
 
   get '/sign_up' do
     erb :sign_up
+  end
+
+  post '/process_sign_up' do
+    redirect '/properties'
   end
 
   run! if app_file == $PROGRAM_NAME

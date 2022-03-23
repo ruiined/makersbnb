@@ -1,16 +1,29 @@
 <head>
-<link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
-<title>MakersBnB</title>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+  <title>MakersBnB</title>
 </head>
 <body>
 <div class="main">
- <h1>Welcome to MakersBnB</h1>
- <form>
+  <h1>MakersBnB</h1>
+   <ul>
+   <li class="left"><a href="/properties">view all</a> </li>
+   <li class="right"><a href="/profile">profile</a></li>
+   <li class="right"><a href="/sign_up">sign up</a></li>
+   <li class="right"><a href="/sign_in">sign in</a></li>
+   <li class="right"><a href="/sign_out">sign out</a></li>
+   </ul>
+<%# --------------INSERT CODE BELOW-------------- %>
+  <div id="center_it">
+  <h2 id="center">Welcome back!</h2><br>
+ <form class="sign_in" action="/process_sign_in" method="post">
    <label for="username">Username:</label><br>
-   <input type="text" id="username" name="username"><br>
+   <input type="text" id="username" name="username"><br><br>
    <label for="pwd">Password:</label><br>
-   <input type="password" id="pwd" name="pwd"><br>
-   <input type="submit" value="Login (NOT YET FUNCTIONAL)">
+   <input type="password" id="pwd" name="pwd"><br><br>
+   <input type="submit" value="Login">
  </form>
+</div>
+<%# --------------INSERT CODE ABOVE-------------- %>
+
  </div>
  </body>
