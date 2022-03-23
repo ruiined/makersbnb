@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/app.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/app.rb": {
         "lines": [
           null,
           null,
@@ -25,16 +25,8 @@
           0,
           0,
           null,
-          0,
-          null,
           null,
           1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
           0,
           0,
           null,
@@ -43,7 +35,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/lib/booking.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/lib/booking.rb": {
         "lines": [
           null,
           null,
@@ -61,7 +53,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/lib/database_connection.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/lib/database_connection.rb": {
         "lines": [
           null,
           null,
@@ -71,20 +63,38 @@
           1,
           1,
           1,
-          2,
+          10,
+          10,
+          10,
           null,
           null,
           1,
+          null,
           1,
+          10,
           null,
           null,
           1,
-          1,
+          4,
           null,
           null,
           1,
-          2,
+          6,
+          null,
+          null,
           1,
+          10,
+          10,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          10,
+          7,
           null,
           null,
           null,
@@ -117,19 +127,17 @@
           null,
           null,
           1,
-          null,
-          1,
-          2,
+          10,
           null,
           null,
           1,
-          2,
+          10,
           null,
           null,
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/lib/property.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/lib/property.rb": {
         "lines": [
           null,
           null,
@@ -140,52 +148,55 @@
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
           null,
           null,
           1,
           1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
+          4,
           null,
           null,
           1,
           1,
           null,
           null,
+          1,
+          4,
+          null,
           null,
           1,
-          2,
-          2,
-          2,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/lib/user.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/lib/user.rb": {
         "lines": [
           null,
           null,
@@ -200,7 +211,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/spec/booking_spec.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/spec/booking_spec.rb": {
         "lines": [
           null,
           null,
@@ -210,7 +221,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/spec/features/make_a_booking_spec.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/spec/features/make_a_booking_spec.rb": {
         "lines": [
           null,
           null,
@@ -235,7 +246,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/spec/features/view_properties_spec.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/spec/features/view_properties_spec.rb": {
         "lines": [
           null,
           null,
@@ -248,42 +259,58 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/spec/property_spec.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/spec/property_spec.rb": {
         "lines": [
           null,
           null,
           1,
           null,
           1,
-          1,
-          1,
-          2,
+          3,
+          5,
           null,
-          1,
-          1,
-          1,
+          5,
           null,
           null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          0,
           null,
           null,
-          0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
           null,
           1,
           1,
           1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           1,
           1,
@@ -295,7 +322,7 @@
           null
         ]
       },
-      "/Users/jonnyabrams/Projects/Makers/makersbnb/spec/user_spec.rb": {
+      "/Users/ruiined/Documents/Projects/makersbnb/spec/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -306,6 +333,6 @@
         ]
       }
     },
-    "timestamp": 1647971496
+    "timestamp": 1648036636
   }
 }

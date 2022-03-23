@@ -3,41 +3,57 @@
 require 'property'
 
 describe Property do
-  describe '.all' do
-    subject(:property) { Property }
-    subject(:all_properties) { Property.all }
+  subject(:property) { Property }
+  subject(:all_properties) { Property.all }
+  
+  let(:create_property) { Property.create(
+    title: 'Bungalow', 
+    description: 'Small bungalow', 
+    address: '4 Nutt Square', 
+    price: 10,
+    image_url: 'http://nutt.nutt.com'
+  ) }
 
+  describe '.all' do
     it 'returns an empty array' do
       expect(all_properties).to be_an_instance_of(Array)
       expect(all_properties).to be_empty
     end
 
-    xit 'returns all properties' do
-      connection = PG.connect(dbname: 'makersbnb_test')
+    it 'returns all properties' do
+      create_property
 
-      property = Property.new(id: 1, title: 'Bungalow', description: 'Small bungalow', address: '4 Nutt Square',
-                              price: 10, image_url: 'http://nutt.nutt')
-      Property.new(id: 1, title: 'Mansion', description: 'Massive mansion', address: '5 Nutt Square', price: 1000,
-                   image_url: 'http://nutt2.nutt2')
-
-      properties = Property.all
-
-      expect(properties.length).to eq 2
-      expect(properties.first).to be_a Property
-      expect(properties.first.id).to eq property.id
-      expect(properties.first.title).to eq 'Bungalow'
-      expect(properties.last.address).to eq '5 Nutt Square'
+      expect(all_properties.length).to eq 1
+      expect(all_properties.first).to be_a Property
+      expect(all_properties.first.id.to_i).to be_kind_of(Integer)
+      expect(all_properties.first.title).to eq 'Bungalow'
+      expect(all_properties.last.address).to eq '4 Nutt Square'
     end
   end
+
+  describe '.find' do
+    it 'finds a property using the id' do
+      found_property = property.find(create_property.first.id)
+      expect(found_property.first.title).to eq 'Bungalow' 
+    end
+  end
+
   describe '.create' do
     it 'adds a property to the database' do
-      po = Property.create(title: 'Bleh', description: 'Bleh bleh', address: '23 Bleh Street', price: 12, image_url: 'http://bleh')
-  
-      expect(po.first.title).to eq 'Bleh'
-      expect(po.first.description).to eq 'Bleh bleh'
-      expect(po.first.address).to eq '23 Bleh Street'
-      expect(po.first.price).to eq '12'
-      expect(po.first.image_url).to eq 'http://bleh'
+      create_property
+      expect(all_properties.first.title).to eq 'Bungalow'
+      expect(all_properties.first.description).to eq 'Small bungalow'
+      expect(all_properties.first.address).to eq '4 Nutt Square'
+      expect(all_properties.first.price).to eq '10'
+      expect(all_properties.first.image_url).to eq 'http://nutt.nutt.com'
+    end
+  end
+
+  describe '.delete' do
+    it 'deletes a property from the database' do
+      create_property
+      property.delete(create_property.first.id)
+      expect(all_properties).to be_empty
     end
   end
 end

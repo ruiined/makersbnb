@@ -5,6 +5,14 @@ require 'pg'
 # Database Connection class
 class DatabaseConnection
   class << self
+    def run (query, params = nil)
+      connect
+      params.nil? ? request(query) : params_request(query, params)
+      response
+    end
+
+    private
+
     def connect
       @connection = PG.connect(dbname: database_name)
     end
@@ -13,8 +21,18 @@ class DatabaseConnection
       @request = @connection.exec(query)
     end
 
-    def safe_request(query, params)
+    def params_request(query, params)
       @request = @connection.exec_params(query, params)
+    end
+
+    def response
+      if Property
+        property_response
+      elsif User
+        user_response
+      elsif Booking
+        booking_response
+      end
     end
 
     def property_response
@@ -50,8 +68,6 @@ class DatabaseConnection
         )
       end
     end
-
-    private
 
     def database_name
       testing? ? 'makersbnb_test' : 'makersbnb'
