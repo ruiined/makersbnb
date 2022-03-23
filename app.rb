@@ -31,6 +31,19 @@ class MakersBnB < Sinatra::Base
     erb :booking
   end
 
+  get '/create_listing' do
+    erb :create_listing
+  end
+
+  post '/process_listing' do
+    @property = Property.create(title: params[:title],
+      description: params[:description],
+      address: params[:address],
+      price: params[:price],
+      image_url: params[:image_url])
+    redirect '/properties'
+  end
+
   get '/:user_id/profile' do
     @user = User.find(params[:user_id])
     erb :profile
