@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/booking'
+require './lib/user'
 
 # MakersBnB Application
 class MakersBnB < Sinatra::Base
@@ -17,6 +18,9 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/properties' do
+    # (from Jonny) if welcoming the user (would have to enable sessions?):
+    # stored user ID in POST 'process/sign_up' below
+    # @user = User.find(session[:user_id])
     @properties = Property.all
     erb(:properties)
   end
@@ -41,11 +45,23 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/process_sign_in' do
-    redirect '/properties'
+    user = User.authenticate(username: params[:username], password: params[:password])
+    if user  
+      session[:user_id] = user.id
+      redirect '/properties'
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sign_in')
   end
 
   get '/sign_out' do
     redirect '/properties'
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/sign_in')
   end
 
   get '/sign_up' do
@@ -53,6 +69,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/process_sign_up' do
+    User.create(username: params[:username], email: params[:email], password: params[:password])
+    # (from Jonny) storing user ID for welcoming user by name on /properties
+    # session[:user_id] = user.id
     redirect '/properties'
   end
 

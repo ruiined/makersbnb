@@ -4,7 +4,7 @@ require_relative 'database_connection'
 
 # User class
 class User
-  attr_reader :id, username:, password:, email:
+  attr_reader :id, :username, :password, :email
   
   def initialize(id:, username:, password:, email:)
     @id = id
@@ -19,15 +19,23 @@ class User
     end
 
     def find(id)
+      # return nil unless id
       DatabaseConnection.run(find_query, [id])
     end
 
     def create(username:, password:, email:)
+      encrypted_password = BCrypt::Password.create(password)
       DatabaseConnection.run(insert_query, [username, password, email])
     end
 
     def delete(id)
       DatabaseConnection.run(delete_query, [id])
+    end
+
+    def authenticate(username:, password:)
+      return unless result.any?
+      return unless BCrypt::Password.new(result[0]['password']) == password
+      DatabaseConnection.user_run(authenticate_query, [username, password])
     end
 
     private
@@ -44,6 +52,10 @@ class User
       'INSERT INTO users (username, password, email)
        VALUES($1, $2, $3)
        RETURNING id, username, password, email;'
+    end
+
+    def authenticate_query
+      'SELECT * FROM users WHERE username = $1'
     end
 
     def delete_query
