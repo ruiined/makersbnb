@@ -26,8 +26,8 @@ class MakersBnB < Sinatra::Base
     erb :property
   end
 
-  get '/calendar' do
-    erb(:calendar)
+  get '/:id/booking' do
+    erb(:booking)
   end
 
   run! if app_file == $PROGRAM_NAME
