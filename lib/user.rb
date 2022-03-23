@@ -4,7 +4,7 @@ require_relative 'database_connection'
 
 # User class
 class User
-  attr_reader :id, username:, password:, email:
+  attr_reader :id, :username, :password, :email
   
   def initialize(id:, username:, password:, email:)
     @id = id
@@ -15,19 +15,19 @@ class User
 
   class << self
     def all
-      DatabaseConnection.run(select_all_query)
+      DatabaseConnection.run_user(select_all_query)
     end
 
     def find(id)
-      DatabaseConnection.run(find_query, [id])
+      DatabaseConnection.run_user(find_query, [id])
     end
 
     def create(username:, password:, email:)
-      DatabaseConnection.run(insert_query, [username, password, email])
+      DatabaseConnection.run_user(insert_query, [username, password, email])
     end
 
     def delete(id)
-      DatabaseConnection.run(delete_query, [id])
+      DatabaseConnection.run_user(delete_query, [id])
     end
 
     private
