@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'pg'
 
 require 'simplecov'
@@ -25,9 +26,8 @@ RSpec.configure do |config|
   config.before(:each) do
     connection = PG.connect(dbname: 'makersbnb_test')
 
-    connection.exec("TRUNCATE properties, users, bookings;")
-end
-  
+    connection.exec('TRUNCATE properties, users, bookings;')
+  end
 
   config.after(:suite) do
     puts

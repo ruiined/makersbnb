@@ -12,14 +12,8 @@
           <p><h3><%= property.title %></h3></p>
           <p>£<%= property.price %> per night</p>
           <p><%= property.address %></p>
-          <input type="hidden" name="pg_type" value="<% @pg_type %>">
           <a href="/<%= property.id %>/property">View property</a>
         </div>
       <% end %>
-    <%# <form method="post" action="/delete/<%= task.id %>">
-  <label for="delete_button">
-  <input type="hidden" name="pg_type" value="<% @pg_type %>">
-  <button type="submit" name="delete">Delete</button></label>
-</form> %>
 </div>
 </body>

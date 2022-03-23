@@ -22,7 +22,6 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/:id/property' do
-    id = params[:id]
     @property = Property.find(params[:id])
     erb :property
   end

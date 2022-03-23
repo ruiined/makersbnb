@@ -5,7 +5,7 @@ require_relative 'database_connection'
 # Property class
 class Property
   attr_reader :id, :title, :description, :address, :price, :image_url
-  
+
   def initialize(id:, title:, description:, address:, price:, image_url:)
     @id = id
     @title = title
@@ -17,15 +17,19 @@ class Property
 
   class << self
     def all
-      database_connection(select_all_query)
+      DatabaseConnection.run(select_all_query)
     end
 
     def find(id)
-      database_connection(find_query, [id])
+      DatabaseConnection.run(find_query, [id])
     end
- 
+
     def create(title:, description:, address:, price:, image_url:)
-      database_connection(insert_query, [title, description, address, price, image_url])
+      DatabaseConnection.run(insert_query, [title, description, address, price, image_url])
+    end
+
+    def delete(id)
+      DatabaseConnection.run(delete_query, [id])
     end
 
     private
@@ -39,14 +43,13 @@ class Property
     end
 
     def insert_query
-      'INSERT INTO properties (title, description, address, price, image_url) 
-       VALUES($1, $2, $3, $4, $5) RETURNING id, title, description, address, price, image_url;'
+      'INSERT INTO properties (title, description, address, price, image_url)
+       VALUES($1, $2, $3, $4, $5)
+       RETURNING id, title, description, address, price, image_url;'
     end
 
-    def database_connection(query, params = nil)
-      DatabaseConnection.connect
-      params.nil? ? DatabaseConnection.request(query) : DatabaseConnection.safe_request(query, params)
-      DatabaseConnection.property_response
+    def delete_query
+      'DELETE FROM properties WHERE id = $1;'
     end
   end
 end
