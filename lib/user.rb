@@ -4,7 +4,7 @@ require_relative 'database_connection'
 
 # User class
 class User
-  attr_reader :id, username:, password:, email:
+  attr_reader :id, :username, :password, :email
   
   def initialize(id:, username:, password:, email:)
     @id = id
