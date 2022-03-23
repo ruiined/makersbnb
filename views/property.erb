@@ -3,15 +3,17 @@
   <title>MakersBnB</title>
 </head>
 <body>
- <div class="main">
- <h1>MakersBnB</h1>
-  <img class="listing_details" src="<%= @property.first.image_url %>">
+<div class="main">
+<div id="prop">
+<h1>MakersBnB</h1>
+<img class="listing_details" src="<%= @property.first.image_url %>">
 <h2 id="detail"><%= @property.first.title %></h2>
- <%= @property.first.address %>
+<%= @property.first.address %>
 <br>
- <%= @property.first.price %>
- <br>
- <%= @property.first.description %>
-<br>
+£<%= @property.first.price %> per night
+<br><br>
+<%= @property.first.description %>
+<br><br>
+<a href="/<%= @property.first.id %>/booking">Book</a></div>
 </div>
 </body>
