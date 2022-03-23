@@ -12,68 +12,68 @@ This is the project of a web application, using Sinatra and PostreSQL.
 ### Installation And Set-Up Instructions
 
 Navigate to the directory you wish for the project to be in...
-```console
+```
 $ cd yourdirectory
 ```
 
 Then you can clone this repository by running the following...
-```console
+```
 $ git clone https://github.com/ruiined/makersbnb.git
 ```
 
 Change directory to the project...
-```console
+```
 $ cd makersbnb
 ```
 
 If you don't have postgresql installed, run the following (if you do, skip this)...
-```console
+```
 $ brew install postgresql
 ```
 
 Make sure postgresql is running in the background (if it's already running, skip this)...
-```console
+```
 $ brew services start postgresql
 ```
 
 Install the gems by running the following...
-```console
+```
 $ bundle install
 ```
 
 Start postgresql...
-```console
+```
 $ psql postgres
 postgres=#
 ```
 
 Create the database...
-```console
+```
 postgres=# CREATE DATABASE makersbnb;
 ```
 
 Create the test database...
-```console
+```
 postgres=# CREATE DATABASE makersbnb_test;
 ```
 
 Make sure you're connected to the database...
-```console
+```
 postgres=# \c makersbnb;
 ```
 
 Create the users table...
-```console
+```
 postgres=# CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(60), password VARCHAR(60), email VARCHAR(60));
 ```
 
 Create the properties table...
-```console
+```
 postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, title VARCHAR(80), description VARCHAR(500), address VARCHAR(80), price FLOAT(8), image_url VARCHAR(80));
 ```
 
 Create the bookings table...
-```console
+```
 postgres=# CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, user_id INT4);
 ```
 
