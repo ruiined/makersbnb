@@ -14,7 +14,9 @@ div.listing {
   margin-top: 3vw;
   padding: 2vw 2vw;
 }
-
+div#navbar {
+  background-color: #f1f1f1;
+}
 img.listing {
   float: right;
   height: 15vw;
@@ -43,4 +45,59 @@ a {
 }
 a:hover {
   color: #115b78;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+li.left {
+  float: left;
+}
+li.right {
+  float: right;
+}
+li a {
+  display: block;
+  color: black;
+  padding: 1vw;
+  text-decoration: none;
+  background-color: #f1f1f1;
+  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+}
+
+li a:hover {
+  background-color: #4697b8;
+  color: white;
+}
+input[type=submit] {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  height: 2.5vw;
+  padding: 0vw 1.5vw;
+  background-color: #f1f1f1;
+  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+}
+input[type=submit]:hover {
+  background-color: #4697b8;
+  color: white;
+}
+textarea {
+  resize: none;
+  width: 60vw;
+  height: 10vw;
+  padding: 1vw;
+  border: none;
+  color: #7e7e7e;
+  font-style: italic;
+  border-left: double 0.2vw #4697b8;
+  transition: background-color 0.5s ease-out;
+  text-align: justify;
+}
+textarea:focus {
+  outline: 0;
+  background-color: #f1f1f1;
 }

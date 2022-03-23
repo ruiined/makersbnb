@@ -5,7 +5,16 @@
 <body>
 <div class="main">
   <h1>MakersBnB</h1>
-  <h2>Let these potential bookings pique your curiosity</h2>
+   <h2>Let these potential bookings pique your curiosity</h2><br>
+   <ul>
+   <li class="left"><a href="/properties">view all</a> </li>
+   <%# sign in / sign up IF not signed it %>
+   <%# profile & sign out IF signed it %>
+   <li class="right"><a href="/profile">profile</a></li>
+   <li class="right"><a href="/profile">sign up</a></li>
+   <li class="right"><a href="/#">sign in</a></li>
+   <li class="right"><a href="/#">sign out</a></li>
+   </ul>
       <% @properties.each do |property| %>
         <div class="listing">
         <img class="listing" src="<%= property.image_url %>">

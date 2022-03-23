@@ -27,6 +27,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/:id/booking' do
+    @property = Property.find(params[:id])
     erb(:booking)
   end
 
