@@ -34,7 +34,7 @@ describe User do
 
   describe '.find' do
     it 'finds a user using the id' do
-      found_user = user.find(creat_user.first.id)
+      found_user = user.find(create_user.first.id)
       expect(found_user.first.username).to eq 'bigfatden'
     end
   end
