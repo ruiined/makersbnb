@@ -1,15 +1,3 @@
-# (from Jonny) Potential code for welcoming user:
-# <% if @user %>
-#   <h1>Welcome, <%= @user.name %></h1>
-# <% end %>
-
-
-# (from Jonny) Sign out button:
-
-# <form action="/sessions/destroy" method="post">
-#   <input type="submit" value="Sign out" />
-# </form>
-
 <head>
   <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
   <title>MakersBnB</title>
@@ -23,10 +11,13 @@
    <li class="left"><a href="/create_listing">post a listing</a> </li>
    <%# sign in / sign up IF not signed it %>
    <%# profile & sign out IF signed it %>
-   <li class="right"><a href="/profile">profile</a></li>
-   <li class="right"><a href="/sign_up">sign up</a></li>
-   <li class="right"><a href="/sign_in">sign in</a></li>
+   <% if @user == nil %>
+    <li class="right"><a href="/sign_up">sign up</a></li>
+    <li class="right"><a href="/sign_in">sign in</a></li>
+   <% else %>
+   <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
+   <% end %>
    </ul>
       <% @properties.each do |property| %>
         <div class="listing">
