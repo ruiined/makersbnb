@@ -20,9 +20,6 @@ enable :sessions
   end
 
   get '/properties' do
-    # (from Jonny) if welcoming the user (would have to enable sessions?):
-    # stored user ID in POST 'process/sign_up' below
-    # @user = User.find(session[:user_id])
     @properties = Property.all
     @user = User.find(session[:user_id]).first
     erb(:properties)
