@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'database_connection'
+require 'bcrypt'
 
 # User class
 class User
@@ -19,24 +20,33 @@ class User
     end
 
     def find(id)
-      # return nil unless id
       DatabaseConnection.run_user(find_query, [id])
+    end
+
+    def log_in(username:, password:)
+      DatabaseConnection.run_user(log_in_query, [username, password])
     end
 
     def create(username:, password:, email:)
       encrypted_password = BCrypt::Password.create(password)
-      DatabaseConnection.run_user(insert_query, [username, password, email])
+      DatabaseConnection.run_user(insert_query, [username, encrypted_password, email])
     end
 
     def delete(id)
       DatabaseConnection.run_user(delete_query, [id])
     end
 
-    def authenticate(username:, password:)
-      return unless result.any?
-      return unless BCrypt::Password.new(result[0]['password']) == password
-      DatabaseConnection.run_user(authenticate_query, [username, password])
-    end
+    # def authenticate(username:, password:)
+    #   # return unless result.any?
+    #   # BCrypt::Password.new(result[0]['password']) == password
+    #   # decrypted_password = BCrypt::Password.new(encrypted_password)
+    #   DatabaseConnection.run_user(authenticate_query, [username])
+    #   # p result.first.password
+    #   # p  BCrypt::Password.new(result.first.password)
+    #   # p result.map { |user| password == BCrypt::Password.new(user.password)}
+    #   # unless 
+      
+    # end
 
     private
 
@@ -54,8 +64,12 @@ class User
        RETURNING id, username, password, email;'
     end
 
+    def log_in_query
+      'SELECT * FROM users WHERE username = $1 AND password = $2;'
+    end
+
     def authenticate_query
-      'SELECT * FROM users WHERE username = $1'
+      'SELECT * FROM users WHERE username = $1;'
     end
 
     def delete_query

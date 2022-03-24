@@ -15,14 +15,14 @@
    <li class="right"><a href="/sign_in">sign in</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
    </ul><br><br>
-<img class="listing_details" src="<%= @property.first.image_url %>">
-<h2><%= @property.first.title %></h2>
-<%= @property.first.address %>
+<img class="listing_details" src="<%= @property.image_url %>">
+<h2><%= @property.title %></h2>
+<%= @property.address %>
 <br>
-£<%= @property.first.price %> per night
+£<%= @property.price %> per night
 <br><br>
-<p><%= @property.first.description %></p>
+<p><%= @property.description %></p>
 <br><br>
-<a href="/<%= @property.first.id %>/booking">Book</a></div>
+<a href="/<%= @property.id %>/booking">Book</a></div>
 </div>
 </body>
