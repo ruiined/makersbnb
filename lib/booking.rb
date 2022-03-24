@@ -41,9 +41,9 @@ class Booking
     end
 
     def insert_query
-      'INSERT INTO bookings (property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation)
+      'INSERT INTO bookings (property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmed)
        VALUES($1, $2, $3, $4, $5, $6, $7, $8)
-       RETURNING id, property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation;'
+       RETURNING id, property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmed;'
     end
 
     def delete_query

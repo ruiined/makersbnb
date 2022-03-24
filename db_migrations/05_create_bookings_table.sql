@@ -1,1 +1,1 @@
-CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, user_id INT4);
+CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, host_id INT4, guest_id INT4, start_date date, end_date date, guests INT2, comment VARCHAR(140), confirmed BOOL);
