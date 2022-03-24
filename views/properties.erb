@@ -20,7 +20,7 @@
 
 <%# <------------------------MAIN BODY--------------------------> %>
 
-      <% @properties.each do |property| %>
+      <% @properties.reverse_each do |property| %>
         <div class="listing">
         <img class="listing" src="<%= property.image_url %>">
           <p><h3><%= property.title %></h3></p>
