@@ -49,7 +49,7 @@ class DatabaseConnection
       @request.map do |property|
         Property.new(
           id: property['id'],
-          owner_id: property['owner_id'],
+          host_id: property['host_id'],
           title: property['title'],
           description: property['description'],
           address: property['address'],
@@ -75,8 +75,13 @@ class DatabaseConnection
         Booking.new(
           id: booking['id'],
           property_id: booking['property_id'],
-          user_id: booking['user_id'],
-          confirmation: confirmation[false]
+          host_id: booking['host_id'],
+          guest_id: booking['guest_id'],
+          start_date: booking['start_date'],
+          end_date: booking['end_date'],
+          guests: booking['guests'],
+          comment: booking['comment'],
+          confirmed: confirmed['confirmed']
         )
       end
     end

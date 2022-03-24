@@ -36,6 +36,10 @@ class User
       DatabaseConnection.run_user(delete_query, [id])
     end
 
+    def find_id(id)
+      DatabaseConnection.run_user(find_id_query, [id])
+    end
+
     # def authenticate(username:, password:)
     #   # return unless result.any?
     #   # BCrypt::Password.new(result[0]['password']) == password
@@ -74,6 +78,10 @@ class User
 
     def delete_query
       'DELETE FROM users WHERE id = $1;'
+    end
+
+    def find_id_query
+      'SELECT id FROM users WHERE id = $1;'
     end
   end
 end
