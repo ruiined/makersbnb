@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 def create_user
   User.create(username: 'Diego', email: 'test@example.com', password: 'meow123')
 end
