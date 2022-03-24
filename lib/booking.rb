@@ -10,6 +10,7 @@ class Booking
     @id = id
     @property_id = property_id
     @user_id = user_id
+    @confirmation = false
   end
 
   class << self
@@ -21,8 +22,8 @@ class Booking
       DatabaseConnection.run_booking(find_query, [id])
     end
 
-    def create(property_id:, user_id:, start_date:, end_date:, guests:, comment:)
-      DatabaseConnection.run_booking(insert_query, [property_id, user_id, start_date, end_date, guests, comments])
+    def create(property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:, confirmation:)
+      DatabaseConnection.run_booking(insert_query, [property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation])
     end
 
     def delete(id)
@@ -40,9 +41,9 @@ class Booking
     end
 
     def insert_query
-      'INSERT INTO bookings (property_id, user_id, start_date, end_date, guests, comment)
-       VALUES($1, $2, $3, $4, $5, $6)
-       RETURNING id, property_id, user_id, start_date, end_date, guests, comment;'
+      'INSERT INTO bookings (property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation)
+       VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+       RETURNING id, property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation;'
     end
 
     def delete_query
