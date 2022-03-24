@@ -134,10 +134,9 @@ enable :sessions
   end
 
   post '/process_sign_up' do
-    User.create(username: params[:username], password: params[:pwd], email: params[:email])
-    # (from Jonny) storing user ID for welcoming user by name on /properties
-    # session[:user_id] = user.id
-    redirect '/properties'
+    @user = User.create(username: params[:username], password: params[:pwd], email: params[:email])
+    session[:user_id] = @user.first.id
+    redirect('/properties')
   end
 
   run! if app_file == $PROGRAM_NAME

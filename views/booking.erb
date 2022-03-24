@@ -1,19 +1,24 @@
 <head>
   <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
-  <title><a href="/">MakersBnB</a></title>
+  <title>MakersBnB</title>
 </head>
 <body>
 <div class="main">
-<h1><a href="/">MakersBnB</a></h1>
-<ul>
-  <li class="left"><a href="/properties">view all</a> </li>
-  <%# sign in / sign up IF not signed it %>
-  <%# profile & sign out IF signed it %>
-  <li class="right"><a href="/profile">profile</a></li>
-  <li class="right"><a href="/profile">sign up</a></li>
-  <li class="right"><a href="/#">sign in</a></li>
-  <li class="right"><a href="/#">sign out</a></li>
-</ul><br>
+  <h1>MakersBnB</h1>
+   <h2 id="center">Let these potential bookings pique your curiosity</h2><br>
+   <ul>
+   <li class="left"><a href="/properties">view all</a> </li>
+   <li class="left"><a href="/create_listing">post a listing</a> </li>
+   <% if @user == nil %>
+    <li class="right"><a href="/sign_up">sign up</a></li>
+    <li class="right"><a href="/sign_in">sign in</a></li>
+   <% else %>
+   <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
+   <li class="right"><a href="/sign_out">sign out</a></li>
+   <% end %>
+</ul>
+<br><br>
+<%# <------------------------MAIN BODY--------------------------> %>
 
 <h2>Booking for <%= @property.title %></h2>
 <form action="/book" method="post"> 
@@ -36,5 +41,7 @@
 <br><br>
 <input type='submit' value='Request Booking'>
 </form>
+
+<%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>

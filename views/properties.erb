@@ -1,6 +1,6 @@
 <head>
   <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
-  <title><a href="/">MakersBnB</a></title>
+  <title>MakersBnB</title>
 </head>
 <body>
 <div class="main">
@@ -9,8 +9,6 @@
    <ul>
    <li class="left"><a href="/properties">view all</a> </li>
    <li class="left"><a href="/create_listing">post a listing</a> </li>
-   <%# sign in / sign up IF not signed it %>
-   <%# profile & sign out IF signed it %>
    <% if @user == nil %>
     <li class="right"><a href="/sign_up">sign up</a></li>
     <li class="right"><a href="/sign_in">sign in</a></li>
@@ -18,7 +16,10 @@
    <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
    <% end %>
-   </ul>
+</ul>
+
+<%# <------------------------MAIN BODY--------------------------> %>
+
       <% @properties.each do |property| %>
         <div class="listing">
         <img class="listing" src="<%= property.image_url %>">
@@ -28,5 +29,7 @@
           <a href="/<%= property.id %>/property">View property</a>
         </div>
       <% end %>
+
+<%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>
