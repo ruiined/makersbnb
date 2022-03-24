@@ -36,8 +36,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/process_booking_request' do
-    Booking.create(property_id: params[:],
-      post_id:,
+    Booking.create(property_id:,
+      host_id:,
       guest_id:,
       start_date: params[:start_date],
       end_date: params[:end_date],
