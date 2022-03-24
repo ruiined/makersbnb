@@ -49,5 +49,5 @@ class Booking
     def delete_query
       'DELETE FROM bookings WHERE id = $1;'
     end
-
+  end
 end
