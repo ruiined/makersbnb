@@ -44,14 +44,16 @@ enable :sessions
     @property_id = Property.find(params[:id])
     @host_id = Property.find_owner(params[:id])
     @guest_id = User.find(params[:user_id])
-    @booking = Booking.create(property_id: :property_id,
-      host_id: :host_id,
-      guest_id: :guest_id,
-      start_date: params[:start_date],
-      end_date: params[:end_date],
-      guests: params[:guests],
-      comment: params[:comment],
-      confirmation:)
+    # @booking = Booking.create(
+    #   property_id: ,
+    #   host_id: ,
+    #   guest_id: ,
+    #   start_date: params[:start_date],
+    #   end_date: params[:end_date],
+    #   guests: params[:guests],
+    #   comment: params[:comment],
+    #   confirmation:
+    # )
     redirect '/booking_request_received'
   end
 
