@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/booking'
 require './lib/user'
+require './lib/property'
 
 # MakersBnB Application
 class MakersBnB < Sinatra::Base
@@ -13,6 +14,7 @@ class MakersBnB < Sinatra::Base
     # :nocov:
   end
 
+enable :sessions
   get '/' do
     redirect '/properties'
   end
@@ -22,16 +24,19 @@ class MakersBnB < Sinatra::Base
     # stored user ID in POST 'process/sign_up' below
     # @user = User.find(session[:user_id])
     @properties = Property.all
+    @user = User.find(session[:user_id]).first
     erb(:properties)
   end
 
   get '/:id/property' do
-    @property = Property.find(params[:id])
+    @property = Property.find(params[:id]).first
+    @user = User.find(session[:user_id]).first
     erb :property
   end
-
+  
   get '/:id/booking_request' do
-    @property = Property.find(params[:id])
+    @property = Property.find(params[:id]).first
+    @user = User.find(session[:user_id]).first
     erb :booking
   end
 
@@ -55,20 +60,22 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/create_listing' do
+    @user = User.find(session[:user_id]).first
     erb :create_listing
   end
 
   post '/process_listing' do
+    @user = User.find(session[:user_id]).first
     @property = Property.create(title: params[:title],
       description: params[:description],
       address: params[:address],
       price: params[:price],
-      image_url: params[:image_url])
+      image_url: params[:image_url]).first
     redirect '/properties'
   end
 
-  get '/:user_id/profile' do
-    @user = User.find(params[:user_id])
+  get '/profile' do
+    @user = User.find(session[:user_id]).first
     erb :profile
   end
 
@@ -97,24 +104,27 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/process_sign_in' do
-    user = User.authenticate(username: params[:username], password: params[:password])
-    if user  
-      session[:user_id] = user.id
+    @user = User.log_in(username: params[:username], password: params[:pwd])
+    # if @user.first.password == params[:pwd]
+      session[:user_id] = @user.first.id
       redirect '/properties'
-    else
-      flash[:notice] = 'Please check your email or password.'
-      redirect('/sign_in')
-    end
+    # else
+    #   # flash[:notice] = 'Please check your email or password.'
+    #   redirect('/sign_in')
+    # end
+    # user = User.authenticate(username: params[:username], password: params[:password])
+    # if user  
+    #   session[:user_id] = user.id
+    #   redirect '/properties'
+    # else
+    #   flash[:notice] = 'Please check your email or password.'
+    #   redirect('/sign_in')
+    # end
   end
 
   get '/sign_out' do
-    redirect '/properties'
-  end
-
-  post '/sessions/destroy' do
     session.clear
-    flash[:notice] = 'You have signed out.'
-    redirect('/sign_in')
+    redirect('/properties')
   end
 
   get '/sign_up' do
@@ -122,7 +132,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/process_sign_up' do
-    User.create(username: params[:username], email: params[:email], password: params[:password])
+    User.create(username: params[:username], password: params[:pwd], email: params[:email])
     # (from Jonny) storing user ID for welcoming user by name on /properties
     # session[:user_id] = user.id
     redirect '/properties'
