@@ -40,6 +40,22 @@ enable :sessions
     erb :booking
   end
 
+  post '/process_booking_request' do
+    Booking.create(property_id:,
+      host_id:,
+      guest_id:,
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      guests: params[:guests],
+      comment: params[:comment],
+      confirmation:)
+    redirect '/booking_request_received'
+  end
+
+  get 'booking_request_received' do
+    erb :booking_request_received
+  end
+
   get '/create_listing' do
     @user = User.find(session[:user_id]).first
     erb :create_listing
