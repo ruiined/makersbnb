@@ -4,17 +4,22 @@
 </head>
 <body>
 <div class="main">
-<div id="prop">
-<h1><a href="/">MakersBnB</a></h1>
- <ul>
+  <h1>MakersBnB</h1>
+   <h2 id="center">Let these potential bookings pique your curiosity</h2><br>
+   <ul>
    <li class="left"><a href="/properties">view all</a> </li>
-   <%# sign in / sign up IF not signed it %>
-   <%# profile & sign out IF signed it %>
-   <li class="right"><a href="/profile">profile</a></li>
-   <li class="right"><a href="/sign_up">sign up</a></li>
-   <li class="right"><a href="/sign_in">sign in</a></li>
+   <li class="left"><a href="/create_listing">post a listing</a> </li>
+   <% if @user == nil %>
+    <li class="right"><a href="/sign_up">sign up</a></li>
+    <li class="right"><a href="/sign_in">sign in</a></li>
+   <% else %>
+   <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
-   </ul><br><br>
+   <% end %>
+</ul>
+<%# <------------------------MAIN BODY--------------------------> %>
+
+<br><br> 
 <img class="listing_details" src="<%= @property.image_url %>">
 <h2><%= @property.title %></h2>
 <%= @property.address %>
@@ -23,6 +28,8 @@
 <br><br>
 <p><%= @property.description %></p>
 <br><br>
-<a href="/<%= @property.id %>/booking">Book</a></div>
+<a href="/<%= @property.id %>/booking_request">Book</a></div>
+
+<%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>

@@ -4,16 +4,21 @@
 </head>
 <body>
 <div class="main">
-  <h1><a href="/">MakersBnB</a></h1>
+  <h1>MakersBnB</h1>
+   <h2 id="center">Let these potential bookings pique your curiosity</h2><br>
    <ul>
    <li class="left"><a href="/properties">view all</a> </li>
-   <li class="right"><a href="/profile">profile</a></li>
-   <li class="right"><a href="/sign_up">sign up</a></li>
-   <li class="right"><a href="/sign_in">sign in</a></li>
+   <li class="left"><a href="/create_listing">post a listing</a> </li>
+   <% if @user == nil %>
+    <li class="right"><a href="/sign_up">sign up</a></li>
+    <li class="right"><a href="/sign_in">sign in</a></li>
+   <% else %>
+   <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
-   </ul>
-<%# --------------INSERT CODE BELOW-------------- %>
-
+   <% end %>
+</ul>
+<%# <------------------------MAIN BODY--------------------------> %>
+<br>
 <div id="center_it"><h2 id="center">Thank you for choosing us!</h2>
 <br><br>
 <form action="/process_sign_up" method="post">
@@ -22,13 +27,13 @@
    <label for="pwd">Password:</label><br>
    <input type="password" id="pwd" name="pwd"><br><br>
    <label for="pwd">Confirm password:</label><br>
-   <input type="password" id="pwd" name="pwd"><br><br>
+   <input type="password" id="pwd2" name="pwd2"><br><br>
    <label for="pwd">E-mail:</label><br>
    <input type="email" id="email" name="email"><br><br>
    <input type="submit" value="Sign Up">
  </form>
-
 </div>
-<%# --------------INSERT CODE ABOVE-------------- %>
+
+<%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>
