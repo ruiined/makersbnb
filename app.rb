@@ -33,17 +33,20 @@ enable :sessions
     @user = User.find(session[:user_id]).first
     erb :property
   end
-
-  get '/:id/booking' do
+  
+  get '/:id/booking_request' do
     @property = Property.find(params[:id]).first
     @user = User.find(session[:user_id]).first
     erb :booking
   end
 
   post '/process_booking_request' do
-    Booking.create(property_id:,
-      host_id:,
-      guest_id:,
+    @property_id = Property.find(params[:id])
+    @host_id = Property.find_owner(params[:id])
+    @guest_id = User.find(params[:user_id])
+    @booking = Booking.create(property_id: :property_id,
+      host_id: :host_id,
+      guest_id: :guest_id,
       start_date: params[:start_date],
       end_date: params[:end_date],
       guests: params[:guests],
@@ -74,6 +77,26 @@ enable :sessions
   get '/profile' do
     @user = User.find(session[:user_id]).first
     erb :profile
+  end
+
+  get ':user_id/requests_list' do
+    @user = User.find(params[:user_id])
+    erb :requests
+  end
+
+  get 'booking_evaluation' do
+    @booking = Booking.find(params[:id])
+    erb :booking_evaluation
+  end
+
+  # host accepts guest booking request - confirmation status changes from false to true in bookings table
+  post 'process_booking_confirmation' do
+    
+  end
+
+  # host rejects guest booking request - the booking is deleted from the table
+  post 'process_booking_rejection' do
+    
   end
 
   get '/sign_in' do
