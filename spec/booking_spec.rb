@@ -8,7 +8,7 @@ describe Booking do
 
   let(:create_booking) do
     Booking.create(
-      booking_id: 1
+      booking_id: 1,
       host_id: 1,
       guest_id: 2,
       start_date: 12/12/2022,
