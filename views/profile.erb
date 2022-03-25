@@ -15,11 +15,33 @@
    <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
    <% end %>
-
+</ul>
 <%# <------------------------MAIN BODY--------------------------> %>
 
+Hello <%= @user.username %><br>
 
+Your property listings:
 
+ <% @properties.reverse_each do |property| %>
+        <div class="listing">
+        <img class="listing" src="<%= property.image_url %>">
+          <p><h3><%= property.title %></h3></p>
+          <p>£<%= property.price %> per night</p>
+          <p><%= property.address %></p>
+          <a href="/<%= property.id %>/property">View property</a>
+        </div>
+      <% end %>
+
+Your bookings:
+
+ <% @bookings.each do |booking| %>
+        <div class="listing">
+          <p><h3><%= booking.title %></h3></p>
+          <p>£<%= booking.price %> per night</p>
+          <p><%= booking.address %></p>
+          <a href="/<%= booking.id %>/property">View property</a>
+        </div>
+      <% end %>
 <%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>

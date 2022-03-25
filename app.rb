@@ -83,8 +83,8 @@ enable :sessions
 
   get '/profile' do
     @user = User.find(session[:user_id]).first
-    @booking = Booking.find(params[:guest_id])
-    @property = Property.find(params[:host_id])
+    @bookings = Booking.find(params[:guest_id])
+    @properties = Property.find(params[:host_id])
     erb :profile
   end
 
