@@ -8,6 +8,7 @@ gem 'pg'
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem "sinatra-flash"
 gem 'webrick'
 gem 'bcrypt'
 

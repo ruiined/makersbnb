@@ -2,9 +2,11 @@
 
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/booking'
 require './lib/user'
 require './lib/property'
+require './lib/database_connection'
 
 # MakersBnB Application
 class MakersBnB < Sinatra::Base
@@ -111,21 +113,19 @@ enable :sessions
 
   post '/process_sign_in' do
     @user = User.log_in(username: params[:username], password: params[:pwd])
-    # if @user.first.password == params[:pwd]
-      session[:user_id] = @user.first.id
+    id = DatabaseConnection.run_user(
+      "SELECT id 
+      FROM users 
+      WHERE username = $1 AND password = $2;", 
+      [params[:username], params[:password]]
+    )
+    if id.first.num_tuples.zero?
+      flash[:invalid_login] = "Invalid login</h4>"
+      redirect '/sign_in'
+    else
+      session[:user_id] = id.first.id
       redirect '/properties'
-    # else
-    #   # flash[:notice] = 'Please check your email or password.'
-    #   redirect('/sign_in')
-    # end
-    # user = User.authenticate(username: params[:username], password: params[:password])
-    # if user  
-    #   session[:user_id] = user.id
-    #   redirect '/properties'
-    # else
-    #   flash[:notice] = 'Please check your email or password.'
-    #   redirect('/sign_in')
-    # end
+    end
   end
 
   get '/sign_out' do
