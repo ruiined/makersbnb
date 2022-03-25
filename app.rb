@@ -45,7 +45,7 @@ enable :sessions
   post '/process_booking_request' do
     hoster_id = Property.find(params[:property_id]).first.host_id
     guest_id = User.find(session[:user_id]).first.id
-    @booking = Booking.create(
+    booking = Booking.create(
       property_id: params[:property_id],
       host_id: hoster_id,
       guest_id: guest_id,
@@ -58,9 +58,10 @@ enable :sessions
   end
 
   get '/booking_request_received' do
+    @booking = Booking.all.last
     erb :booking_request_received
   end
-
+ 
   get '/create_listing' do
     @user = User.find(session[:user_id]).first
     erb :create_listing

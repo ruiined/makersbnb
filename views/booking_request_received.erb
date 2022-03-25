@@ -24,6 +24,17 @@
 <h4>Your booking request has been received.</h4>
 <h5><i>The host will get back to you shortly.</i></h5>
 <br>
+
+Your booking id is #<%= @booking.id %> <br>
+
+<%
+booking_start = Date.parse(@booking.start_date)
+booking_end = Date.parse(@booking.end_date)
+nights = (booking_end - booking_start).to_s.split('')
+nights = nights[0..-3].join
+ %>
+You have requested <%= nights %> nights.<br>
+Your total price is: <%= @booking.total_price %> <br>
 <form action='/' method='get'>
   <input type='submit' value='Return to Homepage'>
 </form>
