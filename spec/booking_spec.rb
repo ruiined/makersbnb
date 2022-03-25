@@ -8,7 +8,7 @@ describe Booking do
 
   let(:create_booking) do
     Booking.create(
-      booking_id: 1,
+      property_id: 1,
       host_id: 1,
       guest_id: 2,
       start_date: 12/12/2022,
@@ -38,7 +38,7 @@ describe Booking do
   describe '.find' do
     it 'finds a booking using the id' do
       found_booking = booking.find(create_booking.first.id)
-      expect(found_booking.first.id.to_i).to eq 1
+      expect(found_booking.first.property_id.to_i).to eq 1
       expect(found_booking.first.host_id.to_i).to eq 1
       expect(found_booking.first.guest_id.to_i).to eq 2
       expect(found_booking.first.guests.to_i).to eq 2
@@ -49,7 +49,7 @@ describe Booking do
   describe '.create' do
     it 'adds a booking to the database' do
       create_booking
-      expect(all_bookings.first.id.to_i).to eq 1
+      expect(all_bookings.first.property_id.to_i).to eq 1
       expect(all_bookings.first.host_id.to_i).to eq 1
       expect(all_bookings.first.guest_id.to_i).to eq 2
       expect(all_bookings.first.guests.to_i).to eq 2

@@ -66,26 +66,12 @@ describe User do
     end
   end
 
-  describe '.authenticate' do
-    it 'returns a user given a correct username and password, if one exists' do
-      user = User.create(username: 'Diego', email: 'test@example.com', password: 'password123')
-      authenticated_user = User.authenticate('Diego', 'password123')
-  
-      expect(authenticated_user.id).to eq user.id
-    end
-
-    it 'returns nil given an incorrect username' do
-      user = User.create(username: 'Diego', email: 'test@example.com', password: 'password123')
-  
-      expect(User.authenticate(username: 'Diogo', password: 'password123')).to be_nil
-    end
-
-    describe '.authenticate' do
-      it 'returns nil given an incorrect password' do
-        user = User.create(username: 'Diego', email: 'test@example.com', password: 'password123')
-    
-        expect(User.authenticate(username: 'Diego', password: 'wrongpassword')).to be_nil
-      end
+  describe '.log_in' do
+    it 'allows a user to log in with username and password' do
+      create_user
+      expect { user.log_in('bigfatden', 'Password123' }.not_to raise_error
+      expect { user.log_in('blah', 'Password123' }.to raise_error
+      expect { user.log_in('bigfatden', 'wrong_password' }.to raise_error
     end
   end
 end
