@@ -69,7 +69,7 @@ postgres=# CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(60), pass
 
 Create the properties table...
 ```
-postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, title VARCHAR(80), description VARCHAR(500), address VARCHAR(80), price FLOAT(8), image_url VARCHAR(80));
+postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, host_id INTEGER REFERENCES, title VARCHAR(80), description VARCHAR(500), address VARCHAR(80), price FLOAT(8), image_url VARCHAR(80));
 ```
 
 Create the bookings table...
@@ -103,7 +103,7 @@ We continued by converting the headline specifications into user stories, as wel
   ```
   As a user,
   So that I can go on a holiday,
-  I want to be able to book an apartment I want.
+  I want to be able to request a booking for an apartment I want.
   ```
   ```
   As a user,
@@ -114,6 +114,16 @@ We continued by converting the headline specifications into user stories, as wel
   As a user,
   So that only I can access my account,
   I want to be able to sign in or sign out.
+  ```
+  ```
+  As a host,
+  So that I can rent my property out,
+  I want to be able to accept a booking request.
+  ```
+  ```
+  As a host,
+  So that my property doesn't get double booked,
+  I want my property to not be bookable after I accept a booking request.
   ```
   
 ### Diagram
