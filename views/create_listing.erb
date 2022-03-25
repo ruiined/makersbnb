@@ -9,11 +9,11 @@
    <h2 id="center">Let these potential bookings pique your curiosity</h2><br>
    <ul>
    <li class="left"><a href="/properties">view all</a> </li>
-   <li class="left"><a href="/create_listing">post a listing</a> </li>
-   <% if @user == nil %>
+    <% if @user == nil %>
     <li class="right"><a href="/sign_up">sign up</a></li>
     <li class="right"><a href="/sign_in">sign in</a></li>
    <% else %>
+   <li class="left"><a href="/create_listing">post a listing</a> </li>
    <li class="right"><a href="/profile"><%= @user.username %>'s profile</a></li>
    <li class="right"><a href="/sign_out">sign out</a></li>
    <% end %>
