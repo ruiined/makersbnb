@@ -74,8 +74,15 @@ postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, host_id INTEGER REFER
 
 Create the bookings table...
 ```
-postgres=# CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, user_id INT4);
+postgres=# CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, host_id INT4, guest_id INT4, start_date DATE, end_date DATE, guests INT2, comment VARCHAR(140), total_price FLOAT(8), confirmed BOOL);
 ```
+
+Come out of psql by typing 'exit' and then...
+```
+$ rackup
+```
+
+You can now visit the website <href="http://localhost:9292/">!
 
 ### How To Interact With The App
 
