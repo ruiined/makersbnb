@@ -43,23 +43,21 @@ enable :sessions
 
   # TODO - get property id and host id parameters to work
   post '/process_booking_request' do
-    property_id = Property.find(params[:id]).first.id
-    host_id = Property.find(params[:id]).first.host_id
-    guest_id = User.find(params[:user_id]).first.id
+    hoster_id = Property.find(params[:property_id]).first.host_id
+    guest_id = User.find(session[:user_id]).first.id
     @booking = Booking.create(
-      property_id: ???
-      host_id: ???
-      guest_id: session[:user_id],
+      property_id: params[:property_id],
+      host_id: hoster_id,
+      guest_id: guest_id,
       start_date: params[:start_date],
       end_date: params[:end_date],
       guests: params[:guests],
-      comment: params[:comment],
-      confirmed: false
+      comment: params[:comment]
     )
     redirect '/booking_request_received'
   end
 
-  get 'booking_request_received' do
+  get '/booking_request_received' do
     erb :booking_request_received
   end
 

@@ -9,6 +9,7 @@ describe Property do
   let(:create_property) do
     Property.create(
       title: 'Bungalow',
+      host_id: 1,
       description: 'Small bungalow',
       address: '4 Nutt Square',
       price: 10,
