@@ -74,12 +74,19 @@ postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, host_id INTEGER REFER
 
 Create the bookings table...
 ```
-postgres=# CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, user_id INT4);
+postgres=# CREATE TABLE bookings (id SERIAL PRIMARY KEY, property_id INT4, host_id INT4, guest_id INT4, start_date DATE, end_date DATE, guests INT2, comment VARCHAR(140), total_price FLOAT(8), confirmed BOOL);
 ```
+
+Come out of psql by typing 'exit' and then...
+```
+$ rackup
+```
+
+You can now visit the website http://localhost:9292/!
 
 ### How To Interact With The App
 
-To be added later...
+Here are some ideas... begin by signing up! Then you can list a property. Perhaps then sign out, sign up with a new account and book that property that you listed on the first account. Navigate to the profile section to see requests, both to rent your properties, and to see your booking requests on other properties.
 
 ## Workflow Stages
 
@@ -136,9 +143,6 @@ Once we exited the planning stage we split the project into small tasks and work
 
 ### Minimum Viable Product
 Our MVP consisted of the first two user stories, namely being able to see a list of spaces and being able to view any one space in more detail.
-
-### Next Steps
-We will add the functionality to book a space, which will make use of the User class. The functionality for a user to sign up (and requirement when attempting to book a space) will also be added, along with signing in and out.
 
 ## Retrospective
 To be completed after the project.
