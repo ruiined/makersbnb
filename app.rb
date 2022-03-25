@@ -37,23 +37,25 @@ enable :sessions
   get '/:id/booking_request' do
     @property = Property.find(params[:id]).first
     @user = User.find(session[:user_id]).first
+    
     erb :booking
   end
 
+  # TODO - get property id and host id parameters to work
   post '/process_booking_request' do
-    @property_id = Property.find(params[:id])
-    @host_id = Property.find_owner(params[:id])
-    @guest_id = User.find(params[:user_id])
-    # @booking = Booking.create(
-    #   property_id: ,
-    #   host_id: ,
-    #   guest_id: ,
-    #   start_date: params[:start_date],
-    #   end_date: params[:end_date],
-    #   guests: params[:guests],
-    #   comment: params[:comment],
-    #   confirmation:
-    # )
+    property_id = Property.find(params[:id]).first.id
+    host_id = Property.find(params[:id]).first.host_id
+    guest_id = User.find(params[:user_id]).first.id
+    @booking = Booking.create(
+      property_id: ???
+      host_id: ???
+      guest_id: session[:user_id],
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      guests: params[:guests],
+      comment: params[:comment],
+      confirmed: false
+    )
     redirect '/booking_request_received'
   end
 
@@ -67,8 +69,8 @@ enable :sessions
   end
 
   post '/process_listing' do
-    @user = User.find(session[:user_id]).first
-    @property = Property.create(title: params[:title],
+    @property = Property.create(host_id: session[:user_id],
+      title: params[:title],
       description: params[:description],
       address: params[:address],
       price: params[:price],

@@ -6,11 +6,16 @@ require_relative 'user'
 
 # Booking Class
 class Booking
-  def initialize(id:, property_id:, user_id:)
+  def initialize(id:, property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:, confirmed: false)
     @id = id
     @property_id = property_id
-    @user_id = user_id
-    @confirmation = false
+    @host_id = host_id
+    @guest_id = guest_id
+    @start_date = start_date
+    @end_date = end_date
+    @guests = guests
+    @comment = comment
+    @confirmed = confirmed
   end
 
   class << self
@@ -22,8 +27,8 @@ class Booking
       DatabaseConnection.run_booking(find_query, [id])
     end
 
-    def create(property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:, confirmation:)
-      DatabaseConnection.run_booking(insert_query, [property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmation])
+    def create(property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:)
+      DatabaseConnection.run_booking(insert_query, [property_id, host_id, guest_id, start_date, end_date, guests, comment])
     end
 
     def delete(id)
