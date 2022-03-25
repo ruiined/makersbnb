@@ -19,6 +19,25 @@ div#center_it {
   text-align: center;
   padding: 4vw 0;
 }
+div.profile_listing {
+  background-color: #ededed;
+  margin-top: 3vw;
+  padding: 2vw 2vw;
+}
+div.profile_left {
+  float: left;
+  width: 48%;
+}
+div.profile_right {
+  float: right;
+  width: 48%;
+}
+img.profile_listing {
+  float: top;
+  height: 15vw;
+  width: 100%;
+  object-fit: cover;
+}
 img.listing {
   float: right;
   height: 15vw;

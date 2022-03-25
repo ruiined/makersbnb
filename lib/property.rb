@@ -25,6 +25,10 @@ class Property
       DatabaseConnection.run_property(find_query, [id])
     end
 
+    def find_by_host(host_id)
+      DatabaseConnection.run_property(find_host_query, [host_id])
+    end
+
     # TODO get this method to work, host_id is not working
     def create(host_id:, title:, description:, address:, price:, image_url:)
       DatabaseConnection.run_property(insert_query, [host_id, title, description, address, price, image_url])
@@ -50,6 +54,10 @@ class Property
 
     def find_query
       'SELECT * FROM properties WHERE id = $1;'
+    end
+
+    def find_host_query
+      'SELECT * FROM properties WHERE host_id = $1;'
     end
 
     def insert_query
