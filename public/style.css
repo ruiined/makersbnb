@@ -125,3 +125,6 @@ textarea:focus {
   background-color: #f1f1f1;
   border-left: double 0.2vw #4697b8;
 }
+i {
+  color: #7e7e7e;
+}

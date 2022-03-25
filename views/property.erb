@@ -28,8 +28,11 @@
 <br><br>
 <p><%= @property.description %></p>
 <br><br>
+<% if @user == nil %>
+<i>Please <a href="/sign_in">sign in</a> or <a href="/sign_up">sign up</a> to book this property</i>
+<% else %>
 <a href="/<%= @property.id %>/booking_request">Book</a></div>
-
+<% end %>
 <%# <------------------------MAIN BODY--------------------------> %>
 </div>
 </body>
