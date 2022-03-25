@@ -20,6 +20,9 @@ div#center_it {
 }
 img.listing {
   float: right;
+  height: 15vw;
+  width: 20vw;
+  object-fit: cover;
 }
 img.listing_details {
   width: 60vw;
