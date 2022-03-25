@@ -69,7 +69,7 @@ postgres=# CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(60), pass
 
 Create the properties table...
 ```
-postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, host_id INTEGER REFERENCES, title VARCHAR(80), description VARCHAR(500), address VARCHAR(80), price FLOAT(8), image_url VARCHAR(80));
+postgres=# CREATE TABLE properties (id SERIAL PRIMARY KEY, host_id INTEGER REFERENCES users (id), title VARCHAR(80), description VARCHAR(500), address VARCHAR(80), price FLOAT(8), image_url VARCHAR(80));
 ```
 
 Create the bookings table...
