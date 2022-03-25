@@ -107,27 +107,26 @@ enable :sessions
 
   # host rejects guest booking request - the booking is deleted from the table
   post 'process_booking_rejection' do
-    
+     
   end
 
   get '/sign_in' do
     erb :sign_in
   end
 
+  get '/sign_in_unsuccessful' do
+    erb :sign_in_unsuccessful
+  end
+
   post '/process_sign_in' do
-    @user = User.log_in(username: params[:username], password: params[:pwd])
-    # id = DatabaseConnection.run_user(
-    #   "SELECT id 
-    #   FROM users 
-    #   WHERE username = $1 AND password = $2;", 
-    #   [params[:username], params[:password]]
-    # )
-    # if id.first.num_tuples.zero?
-    #   flash[:invalid_login] = "Invalid login</h4>"
-    #   redirect '/sign_in'
-    # else
-      session[:user_id] = @user.first.id
+    @user = User.log_in(username: params[:username], password: params[:pwd]).first
+
+    if @user.nil?
+      redirect '/sign_in_unsuccessful'
+    elsif @user.username == params[:username] && @user.password == params[:pwd]
+      session[:user_id] = @user.id
       redirect '/properties'
+    end
   end
 
   get '/sign_out' do
