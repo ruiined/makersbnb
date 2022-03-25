@@ -59,4 +59,19 @@ describe Property do
       expect(all_properties).to be_empty
     end
   end
+
+  describe '.find_owner' do
+    it 'finds the host id of a property' do
+      found_host = property.find_owner(create_property.first.host_id)
+      expect(found_host.host_id.to_i).to eq 1
+    end
+  end
+
+  describe '.find_id' do
+    it 'finds the id of a property' do
+      create_property
+      found_property_id = property.find_id()
+      expect(create_property.find_id).to eq create_property.first.id
+    end
+  end
 end
