@@ -28,8 +28,8 @@ class User
     end
 
     def create(username:, password:, email:)
-      encrypted_password = BCrypt::Password.create(password)
-      DatabaseConnection.run_user(insert_query, [username, encrypted_password, email])
+      # encrypted_password = BCrypt::Password.create(password)
+      DatabaseConnection.run_user(insert_query, [username, password, email])
     end
 
     def delete(id)
