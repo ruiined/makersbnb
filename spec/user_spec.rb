@@ -69,9 +69,9 @@ describe User do
   describe '.log_in' do
     it 'allows a user to log in with username and password' do
       create_user
-      expect { user.log_in('bigfatden', 'Password123' }.not_to raise_error
-      expect { user.log_in('blah', 'Password123' }.to raise_error
-      expect { user.log_in('bigfatden', 'wrong_password' }.to raise_error
+      expect { user.log_in('bigfatden', 'Password123') }.not_to raise_error
+      expect { user.log_in('blah', 'Password123') }.to raise_error
+      expect { user.log_in('bigfatden', 'wrong_password') }.to raise_error
     end
   end
 end
