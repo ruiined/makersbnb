@@ -6,6 +6,8 @@ require_relative 'user'
 
 # Booking Class
 class Booking
+  attr_reader :id, :property_id, :host_id, :guest_id, :start_date, :end_date, :guests, :comment, :confirmed
+
   def initialize(id:, property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:, confirmed: false)
     @id = id
     @property_id = property_id
@@ -46,8 +48,8 @@ class Booking
     end
 
     def insert_query
-      'INSERT INTO bookings (property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmed)
-       VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+      'INSERT INTO bookings (property_id, host_id, guest_id, start_date, end_date, guests, comment)
+       VALUES($1, $2, $3, $4, $5, $6, $7)
        RETURNING id, property_id, host_id, guest_id, start_date, end_date, guests, comment, confirmed;'
     end
 

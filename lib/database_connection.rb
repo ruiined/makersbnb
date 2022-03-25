@@ -81,7 +81,7 @@ class DatabaseConnection
           end_date: booking['end_date'],
           guests: booking['guests'],
           comment: booking['comment'],
-          confirmed: confirmed['confirmed']
+          confirmed: booking['confirmed']
         )
       end
     end
