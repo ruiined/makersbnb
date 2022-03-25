@@ -83,6 +83,8 @@ enable :sessions
 
   get '/profile' do
     @user = User.find(session[:user_id]).first
+    @booking = Booking.find(params[:guest_id])
+    @property = Property.find(params[:host_id])
     erb :profile
   end
 
@@ -112,19 +114,18 @@ enable :sessions
 
   post '/process_sign_in' do
     @user = User.log_in(username: params[:username], password: params[:pwd])
-    id = DatabaseConnection.run_user(
-      "SELECT id 
-      FROM users 
-      WHERE username = $1 AND password = $2;", 
-      [params[:username], params[:password]]
-    )
-    if id.first.num_tuples.zero?
-      flash[:invalid_login] = "Invalid login</h4>"
-      redirect '/sign_in'
-    else
-      session[:user_id] = id.first.id
+    # id = DatabaseConnection.run_user(
+    #   "SELECT id 
+    #   FROM users 
+    #   WHERE username = $1 AND password = $2;", 
+    #   [params[:username], params[:password]]
+    # )
+    # if id.first.num_tuples.zero?
+    #   flash[:invalid_login] = "Invalid login</h4>"
+    #   redirect '/sign_in'
+    # else
+      session[:user_id] = @user.first.id
       redirect '/properties'
-    end
   end
 
   get '/sign_out' do
