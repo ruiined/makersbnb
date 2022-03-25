@@ -69,12 +69,14 @@ enable :sessions
   end
 
   post '/process_listing' do
-    @property = Property.create(host_id: session[:user_id],
+    user_id = User.find(session[:user_id]).first.id
+    @property = Property.create(
+      host_id: user_id,
       title: params[:title],
       description: params[:description],
       address: params[:address],
       price: params[:price],
-      image_url: params[:image_url]).first
+      image_url: params[:image_url])
     redirect '/properties'
   end
 

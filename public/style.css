@@ -7,6 +7,7 @@ div.main {
   position: absolute;
   top: 2vw;
   left: 20vw;
+  padding-bottom: 3vw;
   width: 60vw;
 }
 div.listing {
