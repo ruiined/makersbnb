@@ -45,6 +45,10 @@ class Booking
       DatabaseConnection.run_booking(find_query, [id])
     end
 
+    def find_by_guest(guest_id)
+      DatabaseConnection.run_booking(find_guest_query, [guest_id])
+    end
+
     def create(property_id:, host_id:, guest_id:, start_date:, end_date:, guests:, comment:)
       DatabaseConnection.run_booking(insert_query, [property_id, host_id, guest_id, start_date, end_date, guests, comment])
     end
@@ -61,6 +65,10 @@ class Booking
 
     def find_query
       'SELECT * FROM bookings WHERE id = $1;'
+    end
+
+    def find_guest_query
+      'SELECT * FROM bookings WHERE guest_id = $1;'
     end
 
     def insert_query

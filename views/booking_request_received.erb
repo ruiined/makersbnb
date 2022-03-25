@@ -34,7 +34,7 @@ nights = (booking_end - booking_start).to_s.split('')
 nights = nights[0..-3].join
  %>
 You have requested <%= nights %> nights.<br>
-Your total price is: <%= @booking.total_price %> <br>
+<br><br><br>
 <form action='/' method='get'>
   <input type='submit' value='Return to Homepage'>
 </form>
