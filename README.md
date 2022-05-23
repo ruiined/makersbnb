@@ -1,6 +1,6 @@
 # MakersBnB
 ## Overview
-This is the project of a web application, using Sinatra and PostreSQL.
+This is the project of a web application, using Sinatra and PostgreSQL.
 
 ## Contributors
   <a href="https://github.com/ruiined/makersbnb/graphs/contributors">
